@@ -1,0 +1,5 @@
+ffmpeg
+prefetch_generator
+librosa==0.8.0
+omegaconf==2.0.6
+pytorch_lightning==1.2.10
