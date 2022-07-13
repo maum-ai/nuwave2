@@ -1,3 +1,4 @@
 [submodule "vctk-silence-labels"]
 	path = vctk-silence-labels
 	url = https://github.com/nii-yamagishilab/vctk-silence-labels.git
+	branch = master
