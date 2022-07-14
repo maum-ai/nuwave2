@@ -9,6 +9,8 @@ Official Pytorch+[Lightning](https://github.com/PyTorchLightning/pytorch-lightni
 
 ![](./docs/sampling.gif)
 
+**Official Checkpoint can be downloaded from [here](https://drive.google.com/file/d/11t0cQYx6ZadKQjmfGnqxUUH2UEk5Yzk7/view?usp=sharing).**
+
 ## Requirements
 - [Pytorch](https://pytorch.org/) >=1.7.0 for nn.SiLU(swish activation)
 - [Pytorch-Lightning](https://github.com/PyTorchLightning/pytorch-lightning)==1.2.10
