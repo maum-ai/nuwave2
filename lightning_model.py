@@ -32,10 +32,15 @@ class NuWave2(pl.LightningModule):
     def inference(self, wav_l, band, step, noise_schedule=None):
         signal = torch.randn(wav_l.shape, dtype=wav_l.dtype, device=wav_l.device)
         signal_list = []
+        if noise_schedule == None:
+            h = (self.hparams.logsnr.logsnr_max - self.hparams.logsnr.logsnr_min) / step
         for i in range(step):
             if noise_schedule == None:
-                t = (1.0 - (i+0.5) * 1/step) * torch.ones(signal.shape[0], dtype=signal.dtype, device=signal.device)
-                signal = self.model.denoise(signal, wav_l, band, t, 1/step)
+                logsnr_t = (self.hparams.logsnr.logsnr_min + i * h) * torch.ones(signal.shape[0], dtype=signal.dtype,
+                                                                                 device=signal.device)
+                logsnr_s = (self.hparams.logsnr.logsnr_min + (i+1) * h) * torch.ones(signal.shape[0], dtype=signal.dtype,
+                                                                                 device=signal.device)
+                signal, recon = self.model.denoise_ddim(signal, wav_l, band, logsnr_t, logsnr_s)
             else:
                 logsnr_t = noise_schedule[i] * torch.ones(signal.shape[0], dtype=signal.dtype, device=signal.device)
                 if i == step-1:
