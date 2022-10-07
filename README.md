@@ -9,7 +9,9 @@ Official Pytorch+[Lightning](https://github.com/PyTorchLightning/pytorch-lightni
 
 ![](./docs/sampling.gif)
 
-**Official Checkpoint can be downloaded from [here](https://drive.google.com/file/d/11t0cQYx6ZadKQjmfGnqxUUH2UEk5Yzk7/view?usp=sharing).**
+**Official Checkpoint can be downloaded from [here](https://drive.google.com/file/d/11t0cQYx6ZadKQjmfGnqxUUH2UEk5Yzk7/view?usp=sharing).**  
+
+**We add some additional samples for non-English voice (Korean) and ablation study without BSFT on the [demo page](https://mindslab-ai.github.io/nuwave2/). Please check it!**
 
 ## Requirements
 - [Pytorch](https://pytorch.org/) >=1.7.0 for nn.SiLU(swish activation)
@@ -101,7 +103,11 @@ Please check parser.
 ```shell script
 python inference.py -c {checkpoint_path} -i {input audio} --sr {Sampling rate of input audio} {--steps:option} {--gt:option}
 ```
-Please check parser.
+Please check parser.  
+  
+**__Note:__** If your input is downsampled (12kHz, 16kHz, etc.) audio sample with a full valid frequency component based on the corresponding sampling rate, give the parser as '--sr {Sampling rate of input audio}' without '--gt' parser.  
+On the other hand, if you have a 48kHz audio sample with a full valid frequency component and just want to check whether the model works well, give the parser as '--sr {Sampling rate of input which you want to check}' and add '--gt' parser.  
+Please check [this issue](https://github.com/mindslab-ai/nuwave2/issues/5) for more information. 
 ```python
     parser = argparse.ArgumentParser()
     parser.add_argument('-c',

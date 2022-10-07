@@ -326,9 +326,9 @@
     </table>
     <br> </br>
     <h3> Section &#8548;: Examples for samples upsampled from 22.05kHz to 48kHz (LJSpeech).</h3>
-        This section contains examples for the unseen dataset. Our model is also able to generate high-quality audio from other datasets, such as LJSpeech (22.05kHz).
+        This section contains examples for the unseen dataset. Our model is also able to generate high-quality audio from other datasets, such as the LJSpeech (22.05kHz).
         <br>
-        The model is trained on the first 100 speakers of the VCTK dataset. The following samples are generated for LJSpeech.
+        The model is trained on the first 100 speakers of the VCTK dataset. The following samples are generated for the LJSpeech dataset.
 
     <br> </br>
     <table>
@@ -375,6 +375,80 @@
             <td align="middle">Linear</br>Spectrogram</td>
             <td><img src="samples/lj/original_22.05k/sample_2.png" width="250px" class="center"></td>
             <td><img src="samples/lj/nuwave2_48k/sample_2.png" width="250px" class="center"></td>
+          </tr>
+
+        </tbody>
+    </table>
+    <br> </br>
+
+    <h3> Section &#8549;: Examples for samples of non-English voice (Korean) upsampled from 22.05kHz to 48kHz (KSS).</h3>
+        This section contains examples for non-English dataset. Our model is also able to generate high-quality audio with non-English voice, such as the KSS (Korean, 22.05kHz).
+        <br>
+        The model is trained on the first 100 speakers of the VCTK dataset. The following samples are generated for the KSS dataset.
+
+    <br> </br>
+    <table>
+        <thead>
+          <tr>
+            <th align="middle"> </th>
+            <th align="middle">Original low resolution <br> (22.05 kHz -> 48 kHz)</th>
+            <th align="middle">NU-Wave 2 (48 kHz)</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td align="middle">Audio</td>
+            <td><audio controls style="width: 250px; height: 50px"><source src="samples/kss/wav_l.wav" type="audio/wav"></audio></td>
+            <td><audio controls style="width: 250px; height: 50px"><source src="samples/kss/result.wav" type="audio/wav"></audio></td>
+          </tr>
+
+          <tr>
+            <td align="middle">Linear</br>Spectrogram</td>
+            <td><img src="samples/kss/wav_l.png" width="250px" class="center"></td>
+            <td><img src="samples/kss/result.png" width="250px" class="center"></td>
+          </tr>
+
+        </tbody>
+    </table>
+    <br> </br>
+    <h3> Section &#8550;: Examples for samples of ablation study without BSFT.</h3>
+        This section contains examples for the unseen speakers. The model is trained on the first 100 speakers of the VCTK dataset. The following samples are generated for the remaining 8 speakers.
+        <br>
+        The samples are sampled with 1000 iterations to check whether the reason for failure is the lack of the number of iterations.
+        <br>
+        We can observe that the boundaries are not clear and the model seem cannot reliably distinguish the input bandwidth without BSFT. Also, the results are a little noisy.
+
+    <br> </br>
+    <table>
+        <thead>
+          <tr>
+            <th align="middle"> </th>
+            <th align="middle">Original high resolution (48 kHz)</th>
+            <th align="middle">NU-Wave 2 w/o BSFT <br> (24 kHz input)</th>
+            <th align="middle">NU-Wave 2 w/o BSFT <br> (16 kHz input)</th>
+            <th align="middle">NU-Wave 2 w/o BSFT <br> (12 kHz input)</th>
+            <th align="middle">NU-Wave 2 w/o BSFT <br> (8 kHz input)</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td align="middle">Audio</td>
+            <td><audio controls style="width: 250px; height: 50px"><source src="samples/wo_bsft/result_24k/wav.wav" type="audio/wav"></audio></td>
+            <td><audio controls style="width: 250px; height: 50px"><source src="samples/wo_bsft/result_24k/result.wav" type="audio/wav"></audio></td>
+            <td><audio controls style="width: 250px; height: 50px"><source src="samples/wo_bsft/result_16k/result.wav" type="audio/wav"></audio></td>
+            <td><audio controls style="width: 250px; height: 50px"><source src="samples/wo_bsft/result_12k/result.wav" type="audio/wav"></audio></td>
+            <td><audio controls style="width: 250px; height: 50px"><source src="samples/wo_bsft/result_8k/result.wav" type="audio/wav"></audio></td>
+          </tr>
+
+          <tr>
+            <td align="middle">Linear</br>Spectrogram</td>
+            <td><img src="samples/wo_bsft/result_24k/wav.png" width="250px" class="center"></td>
+            <td><img src="samples/wo_bsft/result_24k/result.png" width="250px" class="center"></td>
+            <td><img src="samples/wo_bsft/result_16k/result.png" width="250px" class="center"></td>
+            <td><img src="samples/wo_bsft/result_12k/result.png" width="250px" class="center"></td>
+            <td><img src="samples/wo_bsft/result_8k/result.png" width="250px" class="center"></td>
           </tr>
 
         </tbody>
