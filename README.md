@@ -13,6 +13,8 @@ Official Pytorch+[Lightning](https://github.com/PyTorchLightning/pytorch-lightni
 
 **We add some additional samples for non-English voice (Korean) and ablation study without BSFT on the [demo page](https://mindslab-ai.github.io/nuwave2/). Please check it!**
 
+**We also trained a model targeting 16 kHz (3.2 kHz ~ 16 kHz source). The Checkpoint can be downloaded from [here](https://drive.google.com/file/d/1IZihqb0LKHLtqRjyhHBGxXHJhUwskVRo/view?usp=sharing).**  
+
 ## Requirements
 - [Pytorch](https://pytorch.org/) >=1.7.0 for nn.SiLU(swish activation)
 - [Pytorch-Lightning](https://github.com/PyTorchLightning/pytorch-lightning)==1.2.10
